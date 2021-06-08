@@ -1,0 +1,182 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  background: rgb(248, 226, 99);
+  font-family: verdana, sans-serif;
+  display: grid;
+  grid-template:
+      "h" 250px
+      "m" 1fr
+      "f" 50px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ヘッダー */
+header {
+  grid-area: h;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+/* メイン */
+main {
+  grid-area: m;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+  background: rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 16px;
+  position: relative;
+}
+
+#question {
+  text-align: center;
+  font-weight: bold;
+}
+
+#choices {
+  list-style: none;
+  padding: 0;
+}
+
+#choices > li {
+  border: 1px solid rgb(146, 146, 146);
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+#choices > li:hover {
+  background: rgb(187, 187, 187);
+}
+
+#btn, #result a {
+  margin: 10px auto;
+  text-align: center;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 20px;
+  background: rgb(255, 230, 0);
+  box-shadow: 5px 5px rgb(201, 181, 1);
+  user-select: none;
+}
+
+#btn, #result a:hover {
+  opacity: 0.8;
+}
+
+#btn, #result a:active {
+  box-shadow: 3px 3px rgb(190, 124, 0);
+}
+
+#btn.disabled {
+  background: rgb(119, 119, 119);
+  box-shadow: 5px 5px rgb(66, 66, 66);
+  opacity: 0.4;
+}
+
+#btn.disabled::after {
+  content: "答えを選んでね";
+}
+
+#result {
+  position: absolute;
+  text-align: center;
+  width: 340px;
+  background: rgb(255, 255, 255);
+  padding: 30px;
+  box-shadow: 0 4px 8px rgb(70, 70, 70);
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border-radius: 10px;
+  transition: 0.4s;
+}
+
+.hidden {
+  transform: translateY(-500px);
+}
+
+#result p {
+  font-size: 26px;
+  margin: 0;
+  padding: 20px 0 50px 0;
+  font-weight: bold;
+}
+
+#result a {
+  display: block;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+/* フッター */
+footer {
+  grid-area: f;
+}
+
+footer p {
+  text-align: center;
+}
+
+/* ジャバスクリプト用クラス */
+#choices > li.correct {
+  background: rgb(143, 191, 255);
+  color: rgb(0, 110, 255);
+  border: 2px solid rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+#choices > li.correct::after {
+  content: "...正解！！";
+}
+
+#choices > li.wrong {
+  background: rgb(255, 142, 142);
+  color: rgb(255, 0, 0);
+  border:  2px solid rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+#choices > li.wrong::after {
+  content: "...不正解！！";
+}
+
+.answer::after {
+  content: "次の問題...=>";
+}
+
+/* メディアクエリ */
+@media (min-width: 600px) {
+  body {
+    grid-template:
+    ""
+    ""
+    "";
+  }
+
+  /* ヘッダー */
+
+  /* メイン */
+
+  /* フッター */
+
+}
